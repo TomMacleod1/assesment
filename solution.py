@@ -41,7 +41,27 @@ def find_shortest_path(start, end, dictionary):
     """
     Please complete this function. You may also define new functions as required.
     """
-    return []
+    adjacents = breadth_first_search(start,dictionary)
+    print(adjacents)
+
+def breadth_first_search(start,dictionary):
+        adjacents = []
+
+        for word in dictionary:
+            if len(word) ==  5:
+                 counter = 0
+
+                 for a in range(0,len(start)):
+                    if counter == len(word) - 1:
+                        adjacents.append(word)
+                        break
+                    
+                    for i in range(0,len(word)):
+                        if word[i] == start[a]:
+                            counter = counter + 1
+                            break
+
+        return adjacents
 
 
 if __name__ == '__main__':
